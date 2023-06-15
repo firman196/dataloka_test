@@ -11,7 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('m_kyc_pelanggan', function (Blueprint $table) {
+            $table->increments('id_kyc');
+            $table->json('kyc');
+            $table->date('tanggal_mulai_aktif');
+            $table->char('status_aktif',1);
+            $table->tinyInteger('deleted')->length(4);
+            $table->string('created_by',100);
+            $table->string('updated_by',100);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('m_kyc_pelanggan');
     }
 };

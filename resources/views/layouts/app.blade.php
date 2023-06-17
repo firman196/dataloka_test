@@ -16,7 +16,6 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
-   
 </head>
 <body>
     <div id="app" class="d-flex bg-white shadow-sm ">
@@ -68,7 +67,7 @@
                     </a>
                     <ul class="nav nav-pills flex-column mb-auto collapse ps-4 mt-1" id="collapseExample">
                         <li>
-                            <a href="#" class="nav-link link-body-emphasis ms-2">
+                            <a href="{{ route('pelanggan.index') }}" class="nav-link link-body-emphasis ms-2">
                             Daftar Pelanggan
                             </a>
                         </li>
@@ -76,7 +75,6 @@
                 </li>
                 </ul>
                 <hr>
-            
             </div>
         </nav>
         <div class="w-100 main-bg-color">
@@ -127,7 +125,7 @@
                     </div>
                 </div>
             </nav> 
-            <main class="py-4" >
+            <main class="py-4" style="min-height:100vh">
                 @yield('content')
             </main>
 

@@ -6,12 +6,12 @@
         <div class="bg-white shadow-sm p-4 ">
             <div class="d-flex justify-content-between">
                 <div>Daftar Pelanggan</div>
-                <button class="btn btn-dark rounded-pill px-4 py-2">
+                <a href="{{route('pelanggan.create')}}" class="btn btn-dark rounded-pill px-4 py-2">
                     <img src="/image/icon/create.svg" alt="create" srcset="" class="me-2">
                     Create Pelanggan
-                </button>
+                </a>
             </div>
-            <div class="table-responsive py-4">
+            <div class="table-responsive ">
                 <table class="table table-flush" id="dataTable">
                 <thead class="thead-light">
                     <tr>
@@ -31,6 +31,24 @@
         </div>
     </div>
 </body>
+
+@endsection
+
+@section('footer')
+<div class="d-flex shadow-sm sticky-bottom bg-white px-4" style="height: 10vh">
+    <p class="mx-4 my-auto">Apply to selected</p>
+    <div class="col-md-2 my-auto">
+        <select class="form-select">
+            <option value="1">Hapus</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+    <div class="col-md-2 my-auto mx-3">
+        <button type="button" class="btn btn-success rounded-pill px-4">Apply</button>
+    </div>
+    
+</div>
 @endsection
 
 @section('page-script')

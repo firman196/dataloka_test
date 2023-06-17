@@ -17,3 +17,26 @@
     background-color: #F4F8F9;
 }
 
+.floating-button {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.floating-button .btn-download {
+    position: absolute;
+    top: 60%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.floating-button .btn-upload {
+    position: absolute;
+    top: 85%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.floating-button .btn-upload {
+    z-index: 1;
+}

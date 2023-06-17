@@ -23,4 +23,16 @@ class PelangganController extends Controller
         return view('pelanggan',compact('title','breadcrumb','url','pelanggans'));
     }
 
+    /**
+     * Show POPUP KYC Pelanggan
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(){
+        $title          = 'KYC Pelanggan';
+        $pelanggans     = null;
+
+        return view('popup',compact('title','pelanggans'));
+    }
+
 }

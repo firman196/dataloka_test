@@ -6,3 +6,37 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+// DataTables
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
+@import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+
+.main-bg-color {
+    background-color: #F4F8F9;
+}
+
+.floating-button {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.floating-button .btn-download {
+    position: absolute;
+    top: 60%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.floating-button .btn-upload {
+    position: absolute;
+    top: 85%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.floating-button .btn-upload {
+    z-index: 1;
+}

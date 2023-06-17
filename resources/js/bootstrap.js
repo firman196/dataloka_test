@@ -1,4 +1,9 @@
 import 'bootstrap';
+import jQuery from 'jquery';
+import "@fortawesome/fontawesome-free/css/all.css";
+
+window.$ = jQuery;
+
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

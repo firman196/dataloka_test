@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
@@ -87,7 +87,7 @@
                     <div class="collapse navbar-collapse px-4 py-2" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto fw-bold">
                             <img src="/image/icon/icon_page.svg" alt="icon page" class="me-3" srcset="">
-                            Pelanggan : Daftar Pelanggan
+                            {{$title}} : {{$breadcrumb}}
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             @guest

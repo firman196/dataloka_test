@@ -12,6 +12,7 @@
 @import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
 @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
 @import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+@import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
 
 .main-bg-color {
     background-color: #F4F8F9;
@@ -50,3 +51,4 @@
 .btn-search {
     margin-left: -5rem !important;
 }
+

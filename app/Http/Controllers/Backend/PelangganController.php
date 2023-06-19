@@ -18,9 +18,8 @@ class PelangganController extends Controller
         $title          = 'Pelanggan';
         $breadcrumb     = 'Daftar Pelanggan';
         $url            = "/pelanggan";
-        $pelanggans     = Pelanggan::all();
 
-        return view('pelanggan',compact('title','breadcrumb','url','pelanggans'));
+        return view('pelanggan',compact('title','breadcrumb','url'));
     }
 
     /**
@@ -30,9 +29,23 @@ class PelangganController extends Controller
      */
     public function create(){
         $title          = 'KYC Pelanggan';
+        $breadcrumb     = 'Daftar Pelanggan';
         $pelanggans     = null;
 
-        return view('popup',compact('title','pelanggans'));
+        return view('popup',compact('title','pelanggans','breadcrumb'));
+    }
+
+    /**
+     * Show deatil pelanggan with list of transaction
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function show(){
+        $title          = 'Pelanggan';
+        $breadcrumb     = 'Daftar Pelanggan';
+        $url            = "/pelanggan";
+
+        return view('show',compact('title','breadcrumb','url'));
     }
 
 }

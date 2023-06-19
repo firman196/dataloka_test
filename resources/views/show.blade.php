@@ -4,83 +4,51 @@
 <body class="antialiased" >
     <div class="mt-16 px-5">
         <div class="bg-white shadow-sm p-4 ">
-            <div class="d-flex justify-content-between">
-                <div class="fw-bold">{{$breadcrumb}}</div>
-                <a href="{{route('pelanggan.create')}}" class="btn btn-dark rounded-pill px-4 py-2">
-                    <img src="/image/icon/create.svg" alt="create" srcset="" class="me-2">
-                    Create Pelanggan
-                </a>
-            </div>
-            <div id="collapseFilter" class="card collapse bg-success-subtle mt-4 px-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="input-group input-group-sm bg-body p-1 rounded">
-                                <input type="text" class="form-control border-0" id="datepicker-start" name="tgl_lahir" aria-describedby="Tanggal Lahir">
-                                <span class="input-group-text border-0">
-                                    -
-                                </span>
-                                <input type="text" class="form-control border-0 " id="datepicker-end" name="tgl_lahir" aria-describedby="Tanggal Lahir">
-                                <span class="input-group-text border-0">
-                                    <img src="/image/icon/datepicker.svg" alt="datepicker" srcset="">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="input-group ">
-                                <span class="input-group-text " id="basic-addon1">Produk :</span>
-                                <select class="form-select" id="inputGroupSelect01">
-                                    <option selected>All</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" id="filter" class="btn btn-success rounded-pill px-4">FILTER</button>
-                        </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="input-group input-group-sm bg-secondary-subtle p-1 rounded">
+                        <input type="text" class="form-control border-0 bg-secondary-subtle" id="datepicker-start" name="tgl_lahir" aria-describedby="Tanggal Lahir">
+                        <span class="input-group-text border-0 bg-secondary-subtle">
+                            -
+                        </span>
+                        <input type="text" class="form-control border-0 bg-secondary-subtle" id="datepicker-end" name="tgl_lahir" aria-describedby="Tanggal Lahir">
+                        <span class="input-group-text border-0 bg-secondary-subtle">
+                            <img src="/image/icon/datepicker.svg" alt="datepicker" srcset="">
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group ">
+                        <span class="input-group-text " id="basic-addon1">Produk :</span>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>All</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group ">
+                        <span class="input-group-text " id="basic-addon1">Status Berlangganan :</span>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Semua</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
                     </div>
                 </div>
             </div>
             <div class="table-responsive my-3">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="d-flex justify-content-start mb-3">
-                            <p class="me-3 my-auto">Show</p>
-                            <div class="my-auto">
-                                <select class="form-select" id="entries">
-                                    <option value="10">10</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                            </div>
-                            <p class="mx-3 my-auto">Entries</p>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
+                <div class="row mb-3">
+                    <div class="col-md-5 col-sm-12">
                         <div class="input-group">
                             <input type="text" id="search" class="form-control rounded-start-pill z-0 input-search" placeholder="Nama Pelanggan" aria-label="Nama Pelanggan" >
                             <button type="button" id="search-btn" class="btn btn-success rounded-pill px-3 btn-search z-1">
                                 <i class="fas fa-regular fas fa-magnifying-glass me-2"></i>
                                 CARI
                             </button>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-flex justify-content-end mb-3">
-                            <button type="button" class="btn btn-outline-secondary px-2 me-4" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
-                                <img src="/image/icon/ic_baseline-filter-alt-off.svg" alt="filter" srcset="">
-                            </button>
-                            <div class="dropdown">
-                                <button class="btn btn-success dropdown-toggle align-center text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="/image/icon/export.svg" class="me-2" width="15rem" height="auto"  alt="filter" srcset="">
-                                    EXPORT
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" id="export-excel">Excel</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,8 +145,8 @@
                 row.append($('<td><div class="fs-5 fw-bold">'+data.username+'</div><div class="fs-6">'+data.no_hp+'</div></td>'));
                 row.append($('<td>').text(data.nama_pelanggan));
                 row.append($('<td><div class="bg-success-subtle col-md-8 py-2 d-flex justify-content-center rounded">'+data.status_akun+'</div></td>'));
-                row.append($('<td><div class="form-switch"><input class="form-check-input status-togle" type="checkbox" role="switch" data-toggle="toggle" id="status-togle" value="'+data.id_pelanggan+'" '+checked+'></td>'));
-                row.append($('<td><a href="{{ route('pelanggan.show') }}" type="button" class="btn btn-primary me-2 btn-sm"><img src="/image/icon/show.svg" alt="show" srcset="" ></a><button type="button" class="btn btn-warning me-2 btn-sm"><img src="/image/icon/edit.svg" alt="show" srcset="" ></button><button type="button" class="btn btn-danger btn-sm"><img src="/image/icon/delete.svg" alt="show" srcset="" ></button></td>'))
+                row.append($('<td><div class="form-check form-switch"><input class="form-check-input status-togle" type="checkbox" role="switch" data-toggle="toggle" id="status-togle" value="'+data.id_pelanggan+'" '+checked+'></td>'));
+                row.append($('<td><button type="button" class="btn btn-primary me-2 btn-sm"><img src="/image/icon/show.svg" alt="show" srcset="" ></button><button type="button" class="btn btn-warning me-2 btn-sm"><img src="/image/icon/edit.svg" alt="show" srcset="" ></button><button type="button" class="btn btn-danger btn-sm"><img src="/image/icon/delete.svg" alt="show" srcset="" ></button></td>'))
                 tableBody.append(row);
             });
         }

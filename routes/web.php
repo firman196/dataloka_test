@@ -16,13 +16,14 @@ use App\Http\Controllers\Backend\DatatableController;
 */
 
 Route::get('/', function () {
-    return view('pelanggan');
+    return view('auth.login');
 });
 
 //routes group pelanggan
 Route::prefix('pelanggan')->group(function () {
     Route::get('/',[PelangganController::class, 'index'])->name('pelanggan.index');
     Route::get('/create', [PelangganController::class,'create'])->name('pelanggan.create');
+    Route::get('/show', [PelangganController::class,'show'])->name('pelanggan.show');
 });
 
 //routes group datatables

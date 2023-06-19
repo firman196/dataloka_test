@@ -4,6 +4,9 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 window.$ = jQuery;
 
+import DataTable from 'datatables.net';
+window.DataTable = DataTable;
+
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

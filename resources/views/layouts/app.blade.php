@@ -6,17 +6,18 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
     
-   
 </head>
 <body>
     <div id="app" class="d-flex bg-white shadow-sm ">
@@ -68,7 +69,7 @@
                     </a>
                     <ul class="nav nav-pills flex-column mb-auto collapse ps-4 mt-1" id="collapseExample">
                         <li>
-                            <a href="#" class="nav-link link-body-emphasis ms-2">
+                            <a href="{{ route('pelanggan.index') }}" class="nav-link link-body-emphasis ms-2">
                             Daftar Pelanggan
                             </a>
                         </li>
@@ -76,7 +77,6 @@
                 </li>
                 </ul>
                 <hr>
-            
             </div>
         </nav>
         <div class="w-100 main-bg-color">
@@ -89,7 +89,7 @@
                     <div class="collapse navbar-collapse px-4 py-2" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto fw-bold">
                             <img src="/image/icon/icon_page.svg" alt="icon page" class="me-3" srcset="">
-                            Pelanggan : Daftar Pelanggan
+                            {{$title}} : {{$breadcrumb}}
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             @guest
@@ -105,29 +105,42 @@
                                     </li>
                                 @endif
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <li class="nav-item">
+                                        <div class="me-5">
+                                            <div class="rounded-circle me-4" width="6rem" height="6rem">
+                                                <img src="/image/icon/user.svg" alt="user" srcset="" class="me-2">
+                                                {{ Auth::user()->name }}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <div class="me-4 d-flex">
+                                            <img src="/image/icon/notification.svg" alt="notification" srcset="">
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="d-flex me-4 text-decoration-none fw-bold text-secondary">
+                                            <img src="/image/icon/setting.svg" alt="notification" srcset="">
+                                            <p class="ms-2 my-auto">Setting</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item me-4">
+                                        <a class="d-flex text-decoration-none fw-bold text-secondary" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            <img src="/image/icon/logout.svg" alt="logout" srcset="">
+                                            <p class="ms-2 my-auto">{{ __('Logout') }}</p>
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
-                                    </div>
-                                </li>
+                                    </li>
                             @endguest
                         </ul>
                     </div>
                 </div>
             </nav> 
-            <main class="py-4" >
+            <main class="py-4" style="min-height:100vh">
                 @yield('content')
             </main>
 

@@ -12,6 +12,7 @@
 @import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
 @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
 @import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+@import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
 
 .main-bg-color {
     background-color: #F4F8F9;
@@ -39,4 +40,20 @@
 
 .floating-button .btn-upload {
     z-index: 1;
+}
+
+.input-search:focus {border-color:rgba(100,100,100,1)!important;
+    -webkit-box-shadow: none!important;
+        -moz-box-shadow: none!important;
+        box-shadow: none!important;
+}
+
+.btn-search {
+    margin-left: -5rem !important;
+}
+
+.form-switch .form-check-input {
+    width: 4em !important;
+    height: 2em !important;
+    background-color: #7BB43F;
 }

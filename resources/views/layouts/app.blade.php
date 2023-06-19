@@ -20,12 +20,19 @@
     
 </head>
 <body>
-    <div id="app" class="d-flex bg-white shadow-sm ">
+    <div id="app" class="d-flex bg-white shadow-sm">
         <nav class="d-flex flex-column flex-shrink-0 p-3 hight-a" data-spy="scroll" style="width: 20%; height: 100vh">
-            <div  class="container-fluid  ">
-                <a href="/" class="d-flex align-items-center mb-5 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                    <img src="/image/logo.svg" alt="logo">
-                </a>
+            <div  class="container-fluid ">
+                <div class="d-flex">
+                    <a href="/" class=" d-flex align-items-center mb-5 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                        <img src="/image/logo.svg" width="160rem" alt="logo">
+                    </a>
+                    <a class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".sidebar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon">
+                            <img src="/image/icon/toggle.svg" alt="toggle">
+                        </span>
+                    </a>
+                </div>
                 <ul class="nav nav-pills flex-column mb-auto">
                 <li>
                     <a href="#" class="nav-link link-body-emphasis pb-0">
@@ -83,9 +90,9 @@
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon">
+                        </span>
                     </button>
-
                     <div class="collapse navbar-collapse px-4 py-2" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto fw-bold">
                             <img src="/image/icon/icon_page.svg" alt="icon page" class="me-3" srcset="">

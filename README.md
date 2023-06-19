@@ -1,8 +1,10 @@
 ## Backend Engineer Dataloka
 Proyek ini dibuat dengan menggunakan laravel 10, jquery & bootsstap 5 
 
-<img width="958" alt="Screenshot 2023-06-19 174120" src="https://github.com/firman196/dataloka_test/assets/53245455/be6b5071-b650-4b03-8c65-7a90078e7681">
-<img width="943" alt="Screenshot 2023-06-19 174200" src="https://github.com/firman196/dataloka_test/assets/53245455/a2f257dd-f1e6-4fba-9ec3-297f9f8d7d61">
+
+<img width="958" alt="Screenshot 2023-06-19 174120" src="https://github.com/firman196/dataloka_test/assets/53245455/78480b50-3cf7-49a3-a62b-fe4eac76958e">
+<img width="943" alt="Screenshot 2023-06-19 174200" src="https://github.com/firman196/dataloka_test/assets/53245455/36726edb-a763-4f23-b264-37d48e390d22">
+
 
 
 # Feature #

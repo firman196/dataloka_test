@@ -26,9 +26,5 @@ Route::prefix('pelanggan')->group(function () {
     Route::get('/show', [PelangganController::class,'show'])->name('pelanggan.show');
 });
 
-//routes group datatables
-Route::prefix('data')->group(function(){
-    Route::get('/pelanggan',[DatatableController::class,'dataTablePelanggan'])->name('data.pelanggan');
-});
 Auth::routes();
 

@@ -17,7 +17,6 @@ class Pelanggan extends Seeder
         $faker = Faker::create('id_ID');
  
     	for($i = 1; $i <= 10; $i++){
-    	    // insert data ke table pegawai menggunakan Faker
     		Model::insert([
                 'id_pelanggan'  => $i,
                 'id_kyc'        => 1,

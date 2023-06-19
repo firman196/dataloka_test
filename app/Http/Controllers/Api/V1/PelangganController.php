@@ -34,8 +34,9 @@ class PelangganController extends Controller
             array_push($filter,['created_at','<=',(new \DateTime($endDate))->format('Y-m-d')]);
         }
 
+        array_push($filter,['deleted',0]);
         if(empty($search) && empty($startDate) && empty($endDate)){
-            $pelanggans     = Pelanggan::paginate($limit);
+            $pelanggans     = Pelanggan::where('deleted',0)->paginate($limit);
         } else{
             $pelanggans     = Pelanggan::where($filter)->paginate($limit);
         }
@@ -67,6 +68,7 @@ class PelangganController extends Controller
         if(!empty($search)){
             array_push($filter,['nama_pelanggan','LIKE','%'.$search.'%']);
         }
+        array_push($filter,['deleted',0]);
         return  Excel::download(new PelangganExport($filter), 'pelanggan.xlsx');
         
     }
@@ -115,7 +117,7 @@ class PelangganController extends Controller
                     'Id pelanggan cannot empty'
                 );
             }
-            Pelanggan::whereIn('id_pelanggan',$ids)->delete();
+            Pelanggan::whereIn('id_pelanggan',$ids)->update(['deleted'=>1]);
             
             return ResponseFormatter::success(
                 true,

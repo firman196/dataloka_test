@@ -18,7 +18,7 @@ class KycPelanggan extends Model
         'status_aktif',
         'deleted',
         'created_by',
-        'deleted_by'
+        'updated_by'
     ];
 
     /**

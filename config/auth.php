@@ -38,7 +38,13 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'pelanggans',
+        ],
+
+        //guard jwt authentication
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'pelanggans',
         ],
     ],
 
@@ -64,6 +70,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        //pelanggan definition table
+        'pelanggans' => [
+            'driver' => 'eloquent',
+            'model'  => App\Models\Pelanggan::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

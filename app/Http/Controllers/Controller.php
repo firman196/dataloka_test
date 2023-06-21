@@ -10,5 +10,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
+    public function __construct(){
+        $this->pelanggan    = new \App\Services\PelangganService;
+        $this->auth         = new \App\Services\AuthService;
+    }
 
 }

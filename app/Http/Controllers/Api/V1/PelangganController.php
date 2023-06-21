@@ -20,32 +20,20 @@ class PelangganController extends Controller
      * @return PelangganResource
      */
     public function getListPelanggan(Request $request){
-        $limit      = $request->entries;
-        $search     = $request->search;
-        $startDate  = $request->start_date;
-        $endDate    = $request->end_date;
-
-        $filter     = [];
-        if(!empty($search)){
-            array_push($filter, ['nama_pelanggan','LIKE','%'.$search.'%']);
-        } 
-        if(!empty($startDate) && !empty($endDate)){
-            array_push($filter,['created_at','>=',(new \DateTime($startDate))->format('Y-m-d')]);
-            array_push($filter,['created_at','<=',(new \DateTime($endDate))->format('Y-m-d')]);
+        try {
+            $pelanggans = $this->pelanggan->getAll($request);
+           
+            return PelangganResource::collection($pelanggans)->additional(['meta' => [
+                'code'      =>200,
+                'status'    =>'success',
+                'message'   => 'get data list pelanggan successfully'   
+            ]]);
+        } catch (\Exception $e) {
+            return ResponseFormatter::error(
+                false,
+                $e->getMessage(),
+            );
         }
-
-        array_push($filter,['deleted',0]);
-        if(empty($search) && empty($startDate) && empty($endDate)){
-            $pelanggans     = Pelanggan::where('deleted',0)->paginate($limit);
-        } else{
-            $pelanggans     = Pelanggan::where($filter)->paginate($limit);
-        }
-
-        return PelangganResource::collection($pelanggans)->additional(['meta' => [
-            'code'      =>200,
-            'status'    =>'success',
-            'message'   => 'get data list pelanggan successfully'   
-        ]]);
     }
 
     /**

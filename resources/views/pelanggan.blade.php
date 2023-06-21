@@ -142,7 +142,7 @@
             var entries = $('#entries').val() ?? 10;
             
             $.ajax({
-                url: '{{ route('api.pelanggan.index') }}', 
+                url: '{{ route('data.pelanggan.index') }}', 
                 method: 'GET',
                 dataType: 'json',
                 data: {
@@ -178,7 +178,7 @@
                 row.append($('<td>').text(data.nama_pelanggan));
                 row.append($('<td><div class="bg-success-subtle col-md-8 py-2 d-flex justify-content-center rounded">'+data.status_akun+'</div></td>'));
                 row.append($('<td><div class="form-switch"><input class="form-check-input status-togle" type="checkbox" role="switch" data-toggle="toggle" id="status-togle" value="'+data.id_pelanggan+'" '+checked+'></td>'));
-                row.append($('<td><a href="{{ route('pelanggan.show') }}" type="button" class="btn btn-primary me-2 btn-sm"><img src="/image/icon/show.svg" alt="show" srcset="" ></a><button type="button" class="btn btn-warning me-2 btn-sm"><img src="/image/icon/edit.svg" alt="show" srcset="" ></button><button type="button" class="btn btn-danger btn-sm"><img src="/image/icon/delete.svg" alt="show" srcset="" ></button></td>'))
+                row.append($('<td><a href="{{ route('pelanggan.show') }}" type="button" class="btn btn-primary me-2 btn-sm"><img src="/image/icon/show.svg" alt="show" srcset="" ></a><button type="button" class="btn btn-warning me-2 btn-sm"><img src="/image/icon/edit.svg" alt="show" srcset="" ></button><button data-id="'+data.id_pelanggan+'" type="button" class="btn btn-danger hapus-btn btn-sm"><img src="/image/icon/delete.svg" alt="show" srcset="" ></button></td>'))
                 tableBody.append(row);
             });
         }
@@ -204,8 +204,11 @@
             }
             var id = $(this).val()
             $.ajax({
-                url: "{{ url('api/pelanggan/status') }}/"+id, 
+                url: "{{ url('data/pelanggan/status') }}/"+id, 
                 method: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 dataType: 'json',
                 data: {
                     'status':status
@@ -224,7 +227,7 @@
         $('#export-excel').on('click', function() {
             var search = $('#search').val();
             $.ajax({
-                url: '{{ route('api.pelanggan.export') }}', 
+                url: '{{ route('data.pelanggan.export') }}', 
                 method: 'GET',
                 xhrFields:{
                     responseType: 'blob'
@@ -260,8 +263,11 @@
             if(select == 'delete'){
                 
                 $.ajax({
-                    url: '{{ route('api.pelanggan.delete') }}', 
+                    url: '{{ route('data.pelanggan.delete') }}', 
                     method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     dataType: 'json',
                     data: {
                         'id_pelanggan':dataCheck
@@ -275,6 +281,31 @@
                     }
                 });
             }
+        });
+
+        //event delete pengguna
+        $('#data-table').on('click','.hapus-btn', function(e){
+            const ids = []
+            const id = $(this).data("id")
+            ids.push(id)
+            $.ajax({
+                url: '{{ route('data.pelanggan.delete') }}', 
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                data: {
+                    'id_pelanggan':ids
+                },
+                success: function(data) {
+                    //toastr success
+                    fetch_data()
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error:', error);
+                }
+            });
         });
 
         //Select entries perpage action
